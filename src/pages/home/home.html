@@ -17,13 +17,10 @@
           <ion-avatar item-start>
             <img src={{contacto.avatar}}>
           </ion-avatar>
-          <h2 (click)="clickContacto(contacto.avatar, contacto.nombre, contacto.correo, contacto.telefono, contacto.facebook, contacto.instagram, contacto.twitter)">{{contacto.nombre}}</h2>
+          <h2 (click)="clickContacto(contacto.id, contacto.avatar, contacto.nombre, contacto.correo, contacto.telefono, contacto.facebook, contacto.instagram, contacto.twitter)">{{contacto.nombre}}</h2>
           <h3>{{contacto.telefono}}</h3>
           <button ion-button clear item-end (click)="clickEdit()">
             <ion-icon name="create"></ion-icon>
-          </button>
-          <button ion-button clear item-end (click)="clickDelete(contacto.id, contacto.avatar, contacto.nombre, contacto.correo, contacto.telefono, contacto.facebook, contacto.instagram, contacto.twitter)" >
-            <ion-icon name="trash"></ion-icon>
           </button>
         </ion-item>
       </ion-list>

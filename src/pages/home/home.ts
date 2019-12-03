@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import {AgregarPage} from "../agregar/agregar";
 import { DetallesPage } from '../detalles/detalles';
-import { EliminarPage } from '../eliminar/eliminar';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -12,7 +12,7 @@ export class HomePage {
   contactos:any;
   agregarPage = AgregarPage;
   detallesPage = DetallesPage;
-  eliminarPage = EliminarPage;
+  
 
   constructor(public navCtrl: NavController,
     public http: HttpClient){
@@ -42,13 +42,8 @@ export class HomePage {
     
   }
 
-  clickContacto(avatar, nombre, correo, telefono, facebook, instagram, twitter){
-    this.navCtrl.push(this.detallesPage,{avatar:avatar, nombre:nombre, correo:correo, telefono:telefono, facebook:facebook, instagram:instagram,twitter:twitter})
-
-  }
-
-  clickDelete(id, avatar, nombre, correo, telefono, facebook, instagram, twitter){
-    this.navCtrl.push(this.eliminarPage,{id:id, avatar:avatar, nombre:nombre, correo:correo, telefono:telefono, facebook:facebook, instagram:instagram,twitter:twitter})
+  clickContacto(id,avatar, nombre, correo, telefono, facebook, instagram, twitter){
+    this.navCtrl.push(this.detallesPage,{id: id,avatar:avatar, nombre:nombre, correo:correo, telefono:telefono, facebook:facebook, instagram:instagram,twitter:twitter})
 
   }
 

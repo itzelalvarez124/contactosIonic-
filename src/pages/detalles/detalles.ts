@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the DetallesPage page.
@@ -14,6 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'detalles.html',
 })
 export class DetallesPage {
+  id = 0;
   avatar = '';
   nombre = '';
   correo = '';
@@ -22,7 +24,8 @@ export class DetallesPage {
   instagram = '';
   twitter = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private httpClient:HttpClient) {
+    this.id = navParams.get('id');
     this.avatar = navParams.get('avatar');
     this.nombre = navParams.get('nombre');
     this.correo = navParams.get('correo');
@@ -35,5 +38,19 @@ export class DetallesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetallesPage');
   }
+
+  clickE(){
+     this.httpClient.delete(`/agenda/agenda/${this.id}`)
+    .subscribe(data => {
+        console.log(JSON.stringify(data));
+      }, error => {
+        console.log(JSON.stringify(error));
+      });
+
+      this.navCtrl.popToRoot();
+  }
+  
+
+  clickCancelar(){this.navCtrl.pop();}
 
 }

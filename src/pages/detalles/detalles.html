@@ -20,6 +20,19 @@
           <p><ion-icon name="logo-instagram" style="color:  #dd2a7b;font-size: 25px; margin-right: 5px;"></ion-icon>{{instagram}}</p>
           <p><ion-icon name="logo-twitter" style="color: rgb(0, 172, 238);font-size: 25px; margin-right:  1px;"></ion-icon>{{twitter}}</p>
         </ion-card-content>
+        <ion-row no-padding>
+          <ion-col>
+            <button ion-button clear small color="danger" (click)= "clickE()">
+              <ion-icon name="trash"></ion-icon>
+              Eliminar
+            </button>
+          </ion-col>
+          <ion-col text-right>
+            <button ion-button clear small (click) = "clickCancelar()">
+              Cancelar
+            </button>
+          </ion-col>
+        </ion-row>
       </ion-card>
 
 </ion-content>
